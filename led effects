@@ -1,0 +1,186 @@
+float dTime = 50;
+int b = 0;
+void setup() {
+  for (int a = 3; a < 14; a++) {
+    pinMode(a, OUTPUT);
+    Serial.begin(9600);
+  }
+}
+
+void loop() {
+  // EFFECT 1
+  for (int k = 0; k < 12; k++) {
+    for (int a = 3; a < (14 - b); a++) {
+      digitalWrite(a, HIGH);
+      delay(dTime);
+    }
+    for (int a = (13 - b); a > 2; a--) {
+      digitalWrite(a, LOW);
+      delay(dTime);
+    }
+    b += 1;
+  }
+  b = 0;
+
+  for (int a = 3; a < 14; a++) {
+    digitalWrite(a, HIGH);
+    delay(dTime);
+  }
+  delay(750);
+  for (int a = 3; a < 14; a++) {
+    digitalWrite(a, LOW);
+  }
+
+  // EFFECT 2
+  for (int k = 0; k < 6; k++) {
+    int a = 3;
+    int b = 13;
+    int d = 8;
+    int e = 8;
+    for (int c = 0; c < 6; c++) {
+      digitalWrite(a, HIGH);
+      digitalWrite(b, HIGH);
+      delay(dTime);
+      digitalWrite(a, LOW);
+      digitalWrite(b, LOW);
+      a += 1;
+      b -= 1;
+    }
+    for (int c = 0; c < 6; c++) {
+      digitalWrite(d, HIGH);
+      digitalWrite(e, HIGH);
+      delay(dTime);
+      digitalWrite(d, LOW);
+      digitalWrite(e, LOW);
+      d -= 1;
+      e += 1;
+    }
+  }
+
+  // EFFECT 3
+  for (int k = 0; k < 6; k++) {
+    for (int a = 3; a < 14; a++) {
+      digitalWrite(a, HIGH);
+      delay(dTime / 2);
+      digitalWrite(a, LOW);
+    }
+    for (int a = 13; a > 2; a--) {
+      digitalWrite(a, HIGH);
+      delay(dTime / 2);
+      digitalWrite(a, LOW);
+    }
+  }
+
+  // EFFECT 4
+  for (int k = 0; k < 3; k++) {
+    for (int a = 3; a < 14; a++) {
+      digitalWrite(a, HIGH);
+      delay(dTime);
+    }
+    for (int a = 3; a < 14; a++) {
+      digitalWrite(a, LOW);
+      delay(dTime);
+    }
+    for (int a = 13; a > 2; a--) {
+      digitalWrite(a, HIGH);
+      delay(dTime);
+    }
+    for (int a = 13; a > 2; a--) {
+      digitalWrite(a, LOW);
+      delay(dTime);
+    }
+  }
+  for (int a = 3; a < 14; a++) {
+    digitalWrite(a, HIGH);
+    delay(dTime);
+  }
+
+  // EFFECT 5
+  for (int k = 0; k < 3; k++) {
+    for (int a = 3; a < 14; a++) {
+      digitalWrite(a, HIGH);
+    }
+    for (int a = 3; a < 14; a++) {
+      digitalWrite(a, LOW);
+      delay(dTime * 1.5);
+      digitalWrite(a, HIGH);
+    }
+    for (int a = 13; a > 2; a--) {
+      digitalWrite(a, LOW);
+      delay(dTime * 1.5);
+      digitalWrite(a, HIGH);
+    }
+  }
+  for (int a = 3; a < 14; a++) {
+    digitalWrite(a, LOW);
+  }
+
+  // EFFECT 6
+  int l = 0;
+  int m = 0;
+  for (int k = 0; k < 12; k++) {
+    for (int a = (3 - l); a < (14 - m); a++) {
+      digitalWrite(a, HIGH);
+      delay(dTime);
+      digitalWrite(a, LOW);
+    }
+    for (int a = (13 - m); a > (2 - l); a--) {
+      digitalWrite(a, HIGH);
+      delay(dTime);
+      digitalWrite(a, LOW);
+    }
+    l -= 1;
+    m += 1;
+  }
+
+  // EFFECT 7
+  for (int k = 0; k < 16; k++) {
+    for (int a = 3; a < 14; a += 2) {
+      digitalWrite(a, HIGH);
+    }
+    delay(dTime * 2);
+    for (int a = 3; a < 14; a += 2) {
+      digitalWrite(a, LOW);
+    }
+    for (int a = 4; a < 13; a += 2) {
+      digitalWrite(a, HIGH);
+    }
+    delay(dTime * 2);
+    for (int a = 4; a < 13; a += 2) {
+      digitalWrite(a, LOW);
+    }
+  }
+  // EFFECT 8
+  for (int k = 0; k < 10; k++) {
+    for (int a = 3; a < 9; a++) {
+      digitalWrite(a, HIGH);
+    }
+    delay(dTime * 4);
+    for (int a = 3; a < 9; a++) {
+      digitalWrite(a, LOW);
+    }
+    for (int a = 9; a < 14; a++) {
+      digitalWrite(a, HIGH);
+    }
+    delay(dTime * 4);
+    for (int a = 9; a < 14; a++) {
+      digitalWrite(a, LOW);
+    }
+  }
+  // EFFECT 9
+  int g = -1;
+  int h[] = {13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3};
+  for (int j = 0; j <= 2; j++) {
+    for (int v = 0; v < 12; v++) {
+      for (int a = 3; a < (14 - g); a++) {
+        digitalWrite(a, HIGH);
+        delay(dTime / 2);
+        digitalWrite(a, LOW);
+      }
+      digitalWrite(h[g], HIGH);
+      g += 1;
+      Serial.println(g);
+    }
+    g = -1;
+  }
+}
